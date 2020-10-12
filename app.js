@@ -87,9 +87,8 @@ const UICtrl = (function () {
 
             items.forEach(function (item) {
                 html += `  <li class="collection-item" id="item-${item.id}">
-                <strong>${item.name} <em>${item.calories} Calories</em>
+                <strong>${item.name} </strong> <em>${item.calories} Calories</em>
                 <a href="#" class="secondary-content"><i class="edit-item fa fa-pencil"></i></a>
-                </strong>
             </li>`;
             });
             //Insert List items
@@ -112,9 +111,9 @@ const UICtrl = (function () {
             //Add ID
             li.id = `item-${item.id}`;
             //Add html
-            li.innerHTML = `<strong>${item.name} <em>${item.calories} Calories</em>
+            li.innerHTML = `<strong>${item.name}</strong> <em>${item.calories} Calories</em>
             <a href="#" class="secondary-content"><i class="edit-item fa fa-pencil"></i></a>
-            </strong>`;
+        `;
             //insert item
             document.querySelector(UISelectors.itemList).insertAdjacentElement('beforeend', li)
         },
@@ -184,7 +183,7 @@ const App = (function (ItemCtrl, UICtrl) {
     const itemUpdateSubmit = function (e) {
         if (e.target.classList.contains('edit-item')) {
             //Get list item id (item-0, item-1)
-            const listId = e.target.parentElement.parentElement.id;
+            const listId = e.target.parentNode.parentNode.id;
             console.log(listId)
         }
         e.preventDefault();
